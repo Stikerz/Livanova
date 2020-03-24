@@ -36,10 +36,15 @@ export class ImageService {
     };
   }
 
-  updateHeader(){
+  updateHeader() {
     this.httpOptionsToken = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
+        'Authorization': 'Token ' + this.token
+      })
+    };
+    this.httpOptionsMulti = {
+      headers: new HttpHeaders({
         'Authorization': 'Token ' + this.token
       })
     };
@@ -108,7 +113,7 @@ export class ImageService {
     this.updateHeader();
     this.http.post(this.baseUrl + '/api/images/', data, this.httpOptionsMulti).subscribe(
       data => {
-      this.toastr.success("Image Created");
+        this.toastr.success("Image Created");
       },
       err => {
         this.toastr.error("Error Creating Image", "Error");
