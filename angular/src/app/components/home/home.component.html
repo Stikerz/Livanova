@@ -1,0 +1,61 @@
+<div class="container">
+  <div id="home">
+    <h4>Upload Image</h4>
+
+  </div>
+  <br>
+  <form>
+    <div class="col-sm-4">
+    <div class="form-group">
+      <label><b>Name</b></label>
+      <input type="text" [(ngModel)]="name" class="form-control"
+             required
+             name="name"
+             #namefield="ngModel"
+      >
+      <div *ngIf="namefield.invalid && (namefield.dirty || namefield.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="namefield.errors.required">
+          Name is required.
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label><b>Color</b></label>
+      <select class="form-control" [(ngModel)]="color" name="color">
+        <option>BLACK</option>
+        <option>WHITE</option>
+        <option>RED</option>
+        <option>GREEN</option>
+        <option>YELLOW</option>
+        <option>BLUE</option>
+        <option>BROWN</option>
+        <option>ORANGE</option>
+        <option>PINK</option>
+        <option>PURPLE</option>
+        <option>GREY</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input"
+               id="inputGroupFile01"
+               aria-describedby="inputGroupFileAddon01" [(ngModel)]="image"
+               name="image"
+               (change)="onImage($event)">
+        <label class="custom-file-label" for="inputGroupFile01">Choose
+          file</label>
+      </div>
+    </div>
+    <br>
+    <button (click)="upload()" type="submit" class="btn btn-primary">Upload
+    </button>
+    </div>
+  </form>
+</div>
