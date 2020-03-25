@@ -9,33 +9,26 @@
   <br>
   <form>
     <div class="col-sm-4">
-    <div class="form-group">
-      <label><b>Name</b></label>
-      <input type="text" [(ngModel)]="name" class="form-control"
-             name="name"
-      >
-    </div>
-    <div class="form-group">
-      <label><b>Color</b></label>
-      <select class="form-control" [(ngModel)]="color" name="color">
-        <option>BLACK</option>
-        <option>WHITE</option>
-        <option>RED</option>
-        <option>GREEN</option>
-        <option>YELLOW</option>
-        <option>BLUE</option>
-        <option>BROWN</option>
-        <option>ORANGE</option>
-        <option>PINK</option>
-        <option>PURPLE</option>
-        <option>GREY</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label><b>Name</b></label>
+        <input type="text" [(ngModel)]="name" class="form-control"
+               name="name"
+        >
+      </div>
+      <div class="form-group">
+        <label><b>Color</b></label>
+        <select class="form-control" [(ngModel)]="color" name="color">
+          <option *ngFor="let choice of colorChoice | keyvalue"
+                  [value]="choice.key">
+            {{choice.key}}
+          </option>
+        </select>
+      </div>
 
-    <button (click)="update()" type="submit" class="btn btn-primary">Update
-    </button>
-    <button (click)="delete()" type="button" class="btn btn-danger">Delete
-    </button>
+      <button (click)="update()" type="submit" class="btn btn-primary">Update
+      </button>
+      <button (click)="delete()" type="button" class="btn btn-danger">Delete
+      </button>
     </div>
   </form>
 

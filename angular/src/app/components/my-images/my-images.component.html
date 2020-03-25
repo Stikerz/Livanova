@@ -6,17 +6,20 @@
     <br>
     <div *ngFor="let image of images">
       <div class="text-center">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top rounded mx-auto d-block" src="{{ image.image }}"
-             alt="Card image cap">
-        <a class="nav-link" href="#" routerLink="/myimages/{{ image.id }}">
-        <div class="card-body">
-          <h5 class="card-title">Name: {{ image.name }}</h5>
-          <h5 class="card-title">Color: {{ image.color }}</h5>
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            {{ image.name }}
+          </div>
+          <img class="card-img-top rounded mx-auto d-block"
+               src="{{ image.image }}"
+               alt="Card image cap">
+          <a class="nav-link" href="#" routerLink="/myimages/{{ image.id }}">
+            <div class="{{'card-body bg-' + colorChoice[image.color]}}">
+            </div>
+          </a>
         </div>
-        </a>
       </div>
-      </div>
+      <br>
     </div>
   </div>
 </div>

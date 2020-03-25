@@ -11,6 +11,8 @@ import {ImageService} from "../../services/image.service";
 export class MyImagesComponent implements OnInit {
   token: string;
   images: any;
+  colorChoice: object;
+
 
   constructor(private userService: UserService, private router: Router,
               private imageService: ImageService) {
@@ -20,6 +22,7 @@ export class MyImagesComponent implements OnInit {
     this.userService.sharedToken.subscribe(data => this.token = data);
     if (this.token) {
       this.imageService.getImages();
+      this.imageService.sharedColorChoices.subscribe(data => this.colorChoice = data);
       this.imageService.sharedImages.subscribe(data => this.images = data);
     } else {
       this.router.navigate(['login']);
@@ -28,3 +31,4 @@ export class MyImagesComponent implements OnInit {
   }
 
 }
+// BLUE RED GREEN BABY_BLUE YELLOW BLACK DARK_GREY LIGHT_GREY

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   name: string = '';
   color: string = '';
   file : File;
+  colorChoice: any;
 
   constructor(private router: Router, private userService: UserService,
               private imageService: ImageService, private toastr: ToastrService) { }
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.sharedToken.subscribe(data => this.token= data);
     if(this.token){
+      this.imageService.sharedColorChoices.subscribe(data => this.colorChoice = data);
     }
     else {
       this.router.navigate(['login']);

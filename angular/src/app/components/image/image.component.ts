@@ -14,6 +14,7 @@ export class ImageComponent implements OnInit {
   idParam: string = "";
   name: string;
   color: string;
+  colorChoice: any;
 
   constructor(private userService: UserService, private router: Router,
               private imageService: ImageService,
@@ -30,6 +31,7 @@ export class ImageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.sharedToken.subscribe(data => this.token = data);
     if (this.token) {
+      this.imageService.sharedColorChoices.subscribe(data => this.colorChoice = data);
       this.activateRoute.params.subscribe(params => {
       this.idParam = params['id'];
     });

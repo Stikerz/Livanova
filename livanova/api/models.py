@@ -8,16 +8,13 @@ class Image(models.Model):
     class Color(models.TextChoices):
 
         BLACK = "BLACK"
-        WHITE = "WHITE"
         RED = "RED"
         GREEN = "GREEN"
         YELLOW = "YELLOW"
         BLUE = "BLUE"
-        BROWN = "BROWN"
-        ORANGE = "ORANGE"
-        PINK = "PINK"
-        PURPLE = "PURPLE"
-        GREY = "GREY"
+        BABY_BLUE = "BABY_BLUE"
+        DARK_GREY = "DARK_GREY"
+        LIGHT_GREY = "LIGHT_GREY"
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField()

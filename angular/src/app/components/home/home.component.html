@@ -25,17 +25,10 @@
     <div class="form-group">
       <label><b>Color</b></label>
       <select class="form-control" [(ngModel)]="color" name="color">
-        <option>BLACK</option>
-        <option>WHITE</option>
-        <option>RED</option>
-        <option>GREEN</option>
-        <option>YELLOW</option>
-        <option>BLUE</option>
-        <option>BROWN</option>
-        <option>ORANGE</option>
-        <option>PINK</option>
-        <option>PURPLE</option>
-        <option>GREY</option>
+          <option *ngFor="let choice of colorChoice | keyvalue"
+                  [value]="choice.key">
+    {{choice.key}}
+  </option>
       </select>
     </div>
 

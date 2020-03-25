@@ -16,6 +16,15 @@ export class ImageService {
   image: any = new BehaviorSubject({});
   sharedImage = this.image.asObservable();
   errors: any = [];
+  colorChoices: any = new BehaviorSubject({'BLUE': 'primary',
+                         'RED':'danger',
+                         'GREEN':'success',
+                          'BABY_BLUE':'info',
+                          'YELLOW' : 'warning',
+                          'BLACK' : 'dark',
+                          'DARK_GREY': 'secondary',
+                          'LIGHT_GREY': 'light'});
+  sharedColorChoices = this.colorChoices.asObservable();
 
   private httpOptionsToken: any;
   private httpOptionsMulti: any;
