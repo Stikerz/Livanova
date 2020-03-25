@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  django-api:
+    build: ./livanova
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: django_backend
+    volumes:
+      - ./livanova:/django_backend
+    ports:
+      - "8000:8000"
+  angular-service:
+    container_name: angular_front-end
+    build: ./angular
+    volumes:
+      - ./angular:/angular_frontend
+    ports:
+      - "4200:4200"
+    command: bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
