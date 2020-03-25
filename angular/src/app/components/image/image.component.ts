@@ -17,8 +17,7 @@ export class ImageComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router,
               private imageService: ImageService,
-              private activateRoute: ActivatedRoute) {
-  }
+              private activateRoute: ActivatedRoute) {}
 
   delete() {
     this.imageService.deleteImage(this.idParam);
@@ -33,13 +32,13 @@ export class ImageComponent implements OnInit {
     if (this.token) {
       this.activateRoute.params.subscribe(params => {
       this.idParam = params['id'];
+    });
       this.imageService.getImage(this.idParam);
       this.imageService.sharedImage.subscribe(data => {
-        this.image= data[0];
-        this.name = data[0].name;
-        this.color = data[0].color;
+        this.image= data;
+        this.name = data.name;
+        this.color = data.color;
       });
-    });
 
     } else {
       console.log("Not Logged in");

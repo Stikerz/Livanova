@@ -14,7 +14,7 @@ export class ImageService {
   images: any = new BehaviorSubject([]);
   sharedImages = this.images.asObservable();
   image: any = new BehaviorSubject({});
-  sharedImage = this.images.asObservable();
+  sharedImage = this.image.asObservable();
   errors: any = [];
 
   private httpOptionsToken: any;
@@ -57,7 +57,6 @@ export class ImageService {
         this.images.next(data);
       },
       err => {
-        console.log(this.token);
         console.log(this.httpOptionsToken);
         this.toastr.error("Error Retrieving Image", "Error");
         this.errors = err['error'];
