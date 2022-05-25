@@ -10,7 +10,7 @@ djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 pathspec==0.7.0
 Pillow==7.0.0
-PyJWT==1.7.1
+PyJWT==2.4.0
 pytz==2019.3
 regex==2020.2.20
 sqlparse==0.3.1
